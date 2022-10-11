@@ -18,6 +18,8 @@
 		  transform: translateY(-50%);
 		}
 	</style>
+	
+	<script src="../js/app.js"></script>
 		
 	<?php ?>
 	
@@ -65,9 +67,7 @@
 					</div>
 					<!-- Hour -->
 					<div class='border-white' style='width:90%; margin:5%;'>
-						<div id="divTime" class='text-center fw-bold text-white' onload="time()" style='font-size:25px;'>
-							<script src="../js/app.js"></script>
-						</div>
+						<div id="clock" class='text-center fw-bold text-white' style='font-size:25px;'>00:00:00</div>
 					</div>
 					<!-- Metar -->
 					<div class='' style='width:90%; margin:5%; margin-top:10%;'>
@@ -160,25 +160,20 @@
 						<div class='tab'>
 							<h1>prova3</h1>
 						</div>
-						<input type='radio' name='tabs' id='tabRealTimeDataRWY'>
-						<label for='tabRealTimeDataRWY'>Real Time Data RWY
-							<?php
-								$result = $conn->query($runway);
-								if ($result->num_rows > 0) {
-									$i = 0;
-									while($row = $result->fetch_assoc()) {
-										echo $row['RunwayIdentifier'];
-										if($i == 0){
-											echo " / ";
-											$i++;
-										}											
-									}
+						<?php
+							$result = $conn->query($runway);
+							if ($result->num_rows > 0) {
+								while($row = $result->fetch_assoc()) {
+						?>
+									<input type='radio' name='tabs' id='tabRealTimeDataRWY<?php echo $row['priRwyId']; ?>'>
+									<label for='tabRealTimeDataRWY<?php echo $row['priRwyId']; ?>'>Real Time Data RWY <?php echo $row['priRwyId'] . " / " . $row['secRwyId']; ?></label>
+									<div class='tab'>
+										<h1>prova<?php echo $row['priRwyId']; ?></h1>
+									</div>
+						<?php
 								}
-							?>
-						</label>
-						<div class='tab'>
-							<h1>prova4</h1>
-						</div>
+							}
+						?>
 						<input type='radio' name='tabs' id='tabPlot'>
 						<label for='tabPlot'>Plot</label>
 						<div class='tab'>
