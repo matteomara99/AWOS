@@ -29,6 +29,11 @@ body{
 	border: 2px solid rgb(75,70,130);
 }
 
+.bg-grey{
+	background-color:rgb(78,94,112);
+	border: 2px solid rgb(78,94,112);
+}
+
 .m0{
 	margin:0px;
 }
@@ -90,7 +95,6 @@ body{
 	order: 99;
 	flex-grow: 1;
 	display: none;
-	padding: 1rem;
 }
 
 .tab{

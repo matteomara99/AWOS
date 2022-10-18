@@ -148,7 +148,23 @@
 						<input type='radio' name='tabs' id='tabMetarData' checked='checked'>
 						<label for='tabMetarData'>Metar Data</label>
 						<div class='tab'>
-							<h1>prova</h1>
+							<div class="d-flex">
+								<div style="width:20%;" class="border-white">A</div>
+								<div class="border-white" style="width:80%;">
+								<?php
+									$result = $conn->query($runway);
+									if ($result->num_rows > 0) {
+										while($row = $result->fetch_assoc()) {
+								?>
+									<div class="">RWY <?php echo $row['priRwyId'] . "/" . $row['secRwyId'] ?>
+										<div>A</div>
+									</div>
+								<?php
+										}
+									}
+								?>
+								</div>
+							</div>
 						</div>
 						<input type='radio' name='tabs' id='tabLocalReportData'>
 						<label for='tabLocalReportData'>Local Report Data</label>
@@ -168,7 +184,7 @@
 									<input type='radio' name='tabs' id='tabRealTimeDataRWY<?php echo $row['priRwyId']; ?>'>
 									<label for='tabRealTimeDataRWY<?php echo $row['priRwyId']; ?>'>Real Time Data RWY <?php echo $row['priRwyId'] . " / " . $row['secRwyId']; ?></label>
 									<div class='tab'>
-										<h1>prova<?php echo $row['priRwyId']; ?></h1>
+										<h1>prova3</h1>
 									</div>
 						<?php
 								}
