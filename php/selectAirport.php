@@ -11,10 +11,10 @@
                     while($row = $result->fetch_assoc()) {
             ?>
                         <div>
-                            <?php echo $row['icao'] ?>
+                            <?php echo $row['icaoCode'] ?>
                         </div>
                         <div>
-                            <img src="..\images\<?php echo $row['icao'] ?>.jpg">
+                            <img src="..\images\<?php echo $row['icaoCode'] ?>.jpg">
                         </div>
             <?php
                     }

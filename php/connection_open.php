@@ -15,7 +15,7 @@
 		$servername="localhost";
 		$username="root";
 		$password="";
-		$dbname="awos";
+		$dbname="awos_web";
 
 
 		$conn=new mysqli($servername,$username,$password,$dbname);
