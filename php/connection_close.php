@@ -2,4 +2,5 @@
 		$conn->close();
 	?>
 
+	</body>
 </html>

@@ -21,18 +21,7 @@
 	
 	<script src="../js/app.js"></script>
 		
-	<?php
-		$result = $conn->query($runway);
-		if ($result->num_rows > 0) {
-			while($row = $result->fetch_assoc()) {
-				if($row['typeAirport'] = 'C'){
-					$logo = 'https://cdn-web.enav.it//content/2021-04/Group_0.svg';
-				}else{
-					$logo = '';
-				}
-			}
-		}
-	?>
+	<?php ?>
 	
 	<body style='font-size:15px;'>
 		<div>
@@ -48,7 +37,7 @@
 			</div>
 			
 			<div style='height:50px; width:100%;' class='d-flex bg-white'>
-				<div style='width:20%;'><img src='../images/load.gif' style='height:50px;'><img src='<?php echo $logo ?>' style='height:35px; margin:5px;'></div>
+				<div style='width:20%;'><img src='../images/load.gif' style='height:50px;'><img src='https://cdn-web.enav.it//content/2021-04/Group_0.svg' style='height:35px; margin:5px;'></div>
 				<div class='fw-bold text-center' style='width:22%; font-size:20px; padding:10px;'>AWOS MET - <?php echo $_GET['icao'] ?></div>
 				<div class='d-flex text-center' style='width:30%;'>
 						<div style='width:17%;'>
@@ -196,7 +185,6 @@
 									<label for='tabRealTimeDataRWY<?php echo $row['priRwyId']; ?>'>Real Time Data RWY <?php echo $row['priRwyId'] . " / " . $row['secRwyId']; ?></label>
 									<div class='tab'>
 										<h1>prova3</h1>
-										<!--<img src="..\images\rwymet <?php echo $_POST['icaoSelect'] . "" . $row['priRwyId']. "" . $row['secRwyId'] ?> ">-->
 									</div>
 						<?php
 								}
@@ -223,7 +211,7 @@
 				
 			</div>
 		</div>
-	</body>
+		
 <?php
 	include 'connection_close.php';
 ?>
