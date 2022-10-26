@@ -1,0 +1,44 @@
+TABELLE
+users
+    idUser (auto)
+    name (string)
+    password (string)
+    lastLogin (date)
+
+airports
+    idAirport (auto)
+    icaoCode (string)
+    iataCode (string)
+    city (string)
+    name (string)
+    trAlt (integer)
+    atis (0/1)
+    typeAirport (C/M)
+
+runways
+    idRunway (auto)
+    icaoCode (string)
+    priRwyDeg (integer)
+    priRwyElv (integer)
+    priRwyCode (string)
+    secRwyDeg (integer)
+    secRwyElv (integer)
+    secRwyCode (string)
+
+lastReports
+    idReport (integer)
+    metar (string)
+    dateReport (date)
+
+instruments (future)
+    idIntrument (auto)
+    icaoCode (string)
+    priRwyRvr (0/1)
+    cenRwyRvr (0/1)
+    secRwyRvr (0/1)
+    priRwyWnd (0/1)
+    cenRwyWnd (0/1)
+    secRwyWnd (0/1)
+    priRwyClg (0/1)
+    cenRwyClg (0/1)
+    secRwyClg (0/1)

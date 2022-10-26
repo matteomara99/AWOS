@@ -12,6 +12,7 @@ $listAirports = "SELECT icaoCode, name, city, count(*) as numRwy, typeAirport FR
 
 if(isset($_POST['icaoCode'])){
     $deleteAirport = "DELETE FROM airports WHERE icaoCode = " . $_POST['icaoCode'];
+    $lastReports = "SELECT TOP (48) * FROM lastReports WHERE icaoCode LIKE " . $_POST['icaoCode'] . "ORDER BY date" ;
 }
 
 ?>
