@@ -1,7 +1,7 @@
 <?php
 
 	include 'connection_open.php';
-	include 'query.php';
+	include 'sql\query.php';
 	
 ?>
 

@@ -1,11 +1,11 @@
 <?php
 
 	include 'connection_open.php';
-	include 'query.php';
+	include 'sql\query.php';
 	
 	$login_user = $_POST['uname'];
 	$login_psw = $_POST['psw'];
-	$login = $login ."'".$login_user."'";
+	
 	$today = date('Y-m-d');
 	
 	$result = $conn->query($login);		

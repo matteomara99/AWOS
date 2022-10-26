@@ -1,6 +1,6 @@
 <?php
 	include 'connection_open.php';
-	include 'query.php';
+	include 'sql\query.php';
 ?>	
 	<!--background image-->
 	<style>
@@ -36,13 +36,13 @@
 				<div style='border:2px solid white; width:82%;'>
 					<div class='tabs' style='margin-top:0.5%; margin-left:0.5%'>
 
-						<?php include 'metarData.php'; ?>
-						<?php include 'localReportData.php'; ?>
-						<?php include 'sensorsData.php'; ?>
-						<?php include 'plot.php'; ?>
-						<?php include 'realTimeDataRwy.php'; ?>
-						<?php include 'lastReports.php'; ?>
-						<?php include 'settings.php'; ?>
+						<?php include 'tabs\metarData.php'; ?>
+						<?php include 'tabs\localReportData.php'; ?>
+						<?php include 'tabs\sensorsData.php'; ?>
+						<?php include 'tabs\plot.php'; ?>
+						<?php include 'tabs\realTimeDataRwy.php'; ?>
+						<?php include 'tabs\lastReports.php'; ?>
+						<?php include 'tabs\settings.php'; ?>
 
 					</div>
 				</div>
