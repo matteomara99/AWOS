@@ -4,7 +4,7 @@
 <div class='tab'>
     <div>
     <?php
-        $result = $conn->query($runway);
+        $result = $conn->query($lastReports);
         if ($result->num_rows > 0) {
             while($row = $result->fetch_assoc()) {
     ?>
