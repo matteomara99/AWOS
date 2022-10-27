@@ -12,14 +12,10 @@
 					$i = 0;
                     while($row = $result->fetch_assoc()) {
             ?>
-						<div>
-							<div>
-								<?php echo strtoupper($row['IcaoCode']) ?>
-							</div>
-							<div>
-								<img src="..\images\<?php echo $row['icaoCode'] ?>.jpg">
-							</div>
-						</div>
+						<button name="airport" value="<?php echo strtoupper($row['icaoCode']) ?>">
+							<span> <?php echo strtoupper($row['icaoCode']) ?> </span>
+							<img src="..\images\<?php echo $row['icaoCode'] ?>.jpg">
+						</button>
 			<?php
 					}
                 }

@@ -7,7 +7,7 @@
     </div>
     <!-- Hour -->
     <div class='border-white' style='width:90%; margin:5%;'>
-        <div id="clock" class='text-center fw-bold text-white' style='font-size:25px;'>00:00:00</div>
+        <div id="clock" class='text-center fw-bold text-white' style='font-size:25px;'>00:00:00 UTC</div>
     </div>
     <!-- Metar -->
     <div class='' style='width:90%; margin:5%; margin-top:10%;'>
