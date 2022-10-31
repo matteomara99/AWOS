@@ -12,9 +12,9 @@
 					$i = 0;
                     while($row = $result->fetch_assoc()) {
             ?>
-						<button name="airport" value="<?php echo strtoupper($row['icaoCode']) ?>">
-							<span> <?php echo strtoupper($row['icaoCode']) ?> </span>
-							<img src="..\images\<?php echo $row['icaoCode'] ?>.jpg">
+						<button name="airport" value="<?php echo strtoupper($row["icaoCode"]) ?>">
+							<span> <?php echo strtoupper($row["icaoCode"]) ?> </span>
+							<img src="..\images\<?php echo $row["icaoCode"] ?>.jpg">
 						</button>
 			<?php
 					}
@@ -25,5 +25,5 @@
     </body>
 
 <?php
-	include 'connection_close.php';
+	include "connection_close.php";
 ?>

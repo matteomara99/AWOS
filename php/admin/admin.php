@@ -1,6 +1,6 @@
 <?php
-	include 'conn\connection_open.php';
-	include 'sql\query.php';
+	include "conn\connection_open.php";
+	include "sql\query.php";
 ?>
 
 <body>
@@ -21,11 +21,11 @@
                 while($row = $result->fetch_assoc()) {
         ?>
                 <tr>
-                    <td> <?php echo $row['icaoCode'] ?> </td>
-                    <td> <?php echo $row['city'] ?> </td>
-                    <td> <?php echo $row['name'] ?> </td>
-                    <td> <?php echo $row['numRwy'] ?> </td>
-                    <td> <?php echo $row['typeAirport'] ?> </td>
+                    <td> <?php echo $row["icaoCode"] ?> </td>
+                    <td> <?php echo $row["city"] ?> </td>
+                    <td> <?php echo $row["name"] ?> </td>
+                    <td> <?php echo $row["numRwy"] ?> </td>
+                    <td> <?php echo $row["typeAirport"] ?> </td>
                     <td> <img src="" name="modify" onclick=""> </td>
                     <td> <img src="" name="delete" onclick=""> </td>
                 </tr>
@@ -37,5 +37,5 @@
 </body>
 
 <?php
-	include 'conn\connection_close.php';
+	include "conn\connection_close.php";
 ?>
