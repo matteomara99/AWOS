@@ -1,5 +1,3 @@
-//style
-
 body{
 	background-image: url('AWOS.png');
 	background-repeat: no-repeat, repeat;
@@ -8,9 +6,7 @@ body{
 	width:1180px;
 }
 
-.d-flex{
-	display:flex;
-}
+.d-flex{ display:flex; }
 
 .button{
 	color:white;
@@ -19,54 +15,47 @@ body{
 	font-size:12px;
 }
 
+
+
 .bg-blue{
 	background-color:rgb(45,120,175);
 	border: 2px solid rgb(45,80,175);
 }
 
 .bg-grey{
-	background-color:rgb(75,110,130);
-	border: 2px solid rgb(75,70,130);
-}
-
-.bg-grey{
 	background-color:rgb(78,94,112);
 	border: 2px solid rgb(78,94,112);
+	color:rgb(115, 135, 145)
 }
 
-.m0{
-	margin:0px;
-}
+.bg-greybox{ background-color: rgb(102, 121, 133); }
 
-.mauto{
-	margin:auto;
-}
+.bg-black{ background-color:black; }
 
-.bg-black{
-	background-color:black;
-}
 
-.text-center{
-	text-align:center;
-}
 
-.text-white{
-	color:white;
-}
 
-.text-green{
-	color:rgb(3,255,1);
-}
 
-.text-yellow{
-	color:rgb(252,251,25);
-}
 
-.border-white{
-	border-width: 1px;
-	border-style: solid;
-	border-color: white;
-}
+
+
+
+
+
+
+
+
+.text-center{ text-align:center; }
+
+.text-white{ color:white; }
+
+.text-green{ color:rgb(120,190,75); }
+
+.text-yellow{ color:rgb(252,251,25); }
+
+
+
+
 
 
 
@@ -131,31 +120,32 @@ label{
 
 
 
+.w-auto{ width: auto; }
+.w-100{ width: 100%; }
+.w-90{ width: 90%; }
+.w-80{ width: 80%; }
+.w-50{ width: 50%; }
+.w-45{ width: 45%; }
+.w-32{ width: 32%; }
+.w-20{ width: 20%; }
+.w-18{ width: 18%; }
+.w-13{ width: 13%; }
+.w-10{ width: 10%; }
 
+.border-1sw{ border: 1px solid white; }
+.border-2sw{ border: 2px solid white; }
+.br-20p{ border-radius: 20px;}
 
+.m-auto{ margin: auto; }
+.m-0p{ margin: 0px; }
+.m-5{ margin: 5%; }
+.m-10{ margin: 10%; }
+.m-30p{ margin: 30px; }
 
+.ml-5{ margin-left: 5%; }
 
+.mt-10{ margin-top: 10%; }
 
+.p-5p{ padding: 5px; }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.fs-25p{ font-size: 25px;}

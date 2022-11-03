@@ -1,3 +1,10 @@
+<!--test-->
+<?php 
+    $temp = 23;
+    $dp = 20;
+    $perc_um = (($dp/$temp)*100);
+?>
+
 <input type="radio" name="tabs" id="tabMetarData" checked="checked">
 <label for="tabMetarData">Metar Data</label>
 
@@ -5,29 +12,38 @@
     <div class="d-flex">
         
         <!-- left menu -->
-        <div class="border-white" style="width:20%;">
-            <div style="width:100%;">
-                <div style="width:100%;">
-                    <div style="text-align: center;"><small>PRESSURE</small></div>
-                    <div style="background-color: black; color: green;">1013</div>
+        <div class="border-white w-20">
+            <div class="w-100">
+                <div class="w-100">
+                    <div class="text-center"><small>PRESSURE</small></div>
+                    <div class="text-green bg-greybox m-30p">1013</div>
                 </div>
-                <div class="d-flex">
-                    <div>°C</div>
-                    <div>DP</div>
-                    <div>%</div>
+                <div class="d-flex w-100">
+                    <div>
+                        <div><small>°C</small></div>
+                        <div class="text-green bg-greybox"><?php echo $temp ?></div>
+                    </div>
+                    <div>
+                        <div><small>DP</small></div>
+                        <div class="text-green bg-greybox"><?php echo $dp ?></div>
+                    </div>
+                    <div>
+                        <div><small>%</small></div>
+                        <div class="text-green bg-greybox"><?php echo $perc_um ?></div>
+                    </div>
                 </div>
             </div>
-            <div class="d-flex" style="width:100%;">
+            <div class="d-flex w-100">
                 <!-- Atis Arr -->
-                <div style="padding:5px; width:45%;">
+                <div class="w-45 p-5p">
                     <div style="color: yellow">C</div>
-                    <div><small>10:20</small></div>
+                    <div><small>10:20z</small></div>
                 </div>
-                <div style="padding:5px; width:10%;">&nbsp</div>
+                <div class="w-10 p-5p">&nbsp</div>
                 <!-- Atis Dep -->
-                <div style="padding:5px; width:45%;">
+                <div class="w-45 p-5p">
                     <div style="color: yellow">C</div>
-                    <div><small>10:20</small></div>
+                    <div><small>10:20z</small></div>
                 </div>
             </div>
             <div>ATIS</div>
@@ -35,7 +51,7 @@
         </div>
 
         <!--right menu -->
-        <div class="border-white" style="width:80%;">
+        <div class="border-white w-80">
         <?php
             $result = $conn->query($runway);
             if ($result->num_rows > 0) {
