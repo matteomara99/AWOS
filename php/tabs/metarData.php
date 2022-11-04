@@ -36,13 +36,13 @@
             <div class="d-flex w-100">
                 <!-- Atis Arr -->
                 <div class="w-45 p-5p">
-                    <div style="color: yellow">C</div>
+                    <div class="text-yellow">C</div>
                     <div><small>10:20z</small></div>
                 </div>
                 <div class="w-10 p-5p">&nbsp</div>
                 <!-- Atis Dep -->
                 <div class="w-45 p-5p">
-                    <div style="color: yellow">C</div>
+                    <div class="text-yellow">C</div>
                     <div><small>10:20z</small></div>
                 </div>
             </div>
