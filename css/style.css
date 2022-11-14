@@ -134,7 +134,7 @@ label{
 
 .border-1sw{ border: 1px solid white; }
 .border-2sw{ border: 2px solid white; }
-.br-20p{ border-radius: 20px;}
+.br-20p{ border-radius: 20px; }
 
 .m-auto{ margin: auto; }
 .m-0p{ margin: 0px; }
@@ -148,4 +148,4 @@ label{
 
 .p-5p{ padding: 5px; }
 
-.fs-25p{ font-size: 25px;}
+.fs-25p{ font-size: 25px; }

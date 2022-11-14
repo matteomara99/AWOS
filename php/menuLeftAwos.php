@@ -1,12 +1,12 @@
 <div class="border-2sw w-18">
     <!-- Date -->
-    <div class="border-white w-90 m-5">
+    <div class="border-1sw w-90 m-5">
         <div class="text-center fw-bold text-white fs-25p">
             <?php echo date("j-M-Y") ?>
         </div>
     </div>
     <!-- Hour -->
-    <div class="border-white w-90 m-5">
+    <div class="border-1sw w-90 m-5">
         <div id="clock" class="text-center fw-bold text-white fs-25p">00:00:00 UTC</div>
     </div>
     <!-- Metar -->

@@ -13,7 +13,7 @@
             ?>
 						<button name="airport" value="<?php echo strtoupper($row["icaoCode"]) ?>" width="100px" height="100px">
 							<span class="text-center"> <?php echo strtoupper($row["icaoCode"]) ?> </span>
-							<img src="..\images\<?php echo $row["icaoCode"] ?>.jpg">
+							<!-- <img src="..\images\<?php echo $row["icaoCode"] ?>.jpg"> -->
 						</button>
 
 						<div name="airport" value="<?php echo strtoupper($row["icaoCode"]) ?>">

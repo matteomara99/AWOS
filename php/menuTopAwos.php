@@ -1,5 +1,5 @@
 <?php
-    $result = $conn->query($logo);
+    /*$result = $conn->query($logo);
     if ($result->num_rows > 0) {
         $i = 0;
         while($row = $result->fetch_assoc()) {
@@ -9,7 +9,7 @@
                 $logo = "logoAM.jpg";
             }
         }
-    }
+    }*/
 ?>
 
 <div class="d-flex fw-bold bg-white" style="height:20px; width:100%; font-size:15px; padding-left:5px;">AWOS MET Client</div>
@@ -23,7 +23,7 @@
 </div>
 
 <div style="height:50px; width:100%;" class="d-flex bg-white">
-    <div class="w-20"><img src="../images/load.gif" style="height:50px;"><img src="..\images\<?php $logo ?>" style="height:35px; margin:5px;"></div>
+    <div class="w-20"><img src="../images/load.gif" style="height:50px;"><img src="..\images\technosky.svg" style="height:35px; margin:5px;"></div>
     <div class="fw-bold text-center" style="width:22%; font-size:20px; padding:10px;">AWOS MET - <?php echo $_POST["airport"] ?></div>
     <div class="d-flex text-center" style="width:30%;">
             <div style="width:17%;">

@@ -40,7 +40,7 @@
 						<?php include "tabs\localReportData.php"; ?>
 						<?php include "tabs\sensorsData.php"; ?>
 						<?php include "tabs\plot.php"; ?>
-						<?php include "tabs\realTimeDataRwy.php"; ?>
+						<?php /*include "tabs\realTimeDataRwy.php";*/ ?>
 						<?php include "tabs\lastReports.php"; ?>
 						<?php include "tabs\settings.php"; ?>
 
