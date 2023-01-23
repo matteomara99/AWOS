@@ -8,6 +8,7 @@
 			background-image: url("../images/realtimerwy.png");
 			background-repeat: no-repeat, repeat;
 			background-color: #cccccc;
+			background-size: contain;
 		}
 		
 		.vertical-center {
@@ -23,24 +24,24 @@
 		
 	<?php ?>
 	
-	<body style="font-size:15px;">
+	<body style="font-size:15px; width:auto;">
 		<div>
 			<!-- Menu principale -->
 			<?php include "menuTopAwos.php"; ?>
 			
-			<div class="d-flex" style="height:535px;">
+			<div class="d-flex" style="height: calc(100% + 10px);">
 				<!-- Menu sinistra -->
 				<?php include "menuLeftAwos.php"; ?>
 				
 				<!-- Menu schede -->
-				<div style="border:2px solid white; width:82%;">
+				<div class="border-2sw w-82">
 					<div class="tabs" style="margin-top:0.5%; margin-left:0.5%">
 
 						<?php include "tabs\metarData.php"; ?>
 						<?php include "tabs\localReportData.php"; ?>
 						<?php include "tabs\sensorsData.php"; ?>
 						<?php include "tabs\plot.php"; ?>
-						<?php /*include "tabs\realTimeDataRwy.php";*/ ?>
+						<?php include "tabs\actualTimeDataRwy.php"; ?>
 						<?php include "tabs\lastReports.php"; ?>
 						<?php include "tabs\settings.php"; ?>
 

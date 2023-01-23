@@ -2,7 +2,7 @@ body{
 	background-image: url('AWOS.png');
 	background-repeat: no-repeat, repeat;
 	background-color: #cccccc;
-	height:860px;
+	height:700px;
 	width:1180px;
 }
 
@@ -14,6 +14,8 @@ body{
 	width:100px;
 	font-size:12px;
 }
+
+
 
 
 
@@ -123,6 +125,7 @@ label{
 .w-auto{ width: auto; }
 .w-100{ width: 100%; }
 .w-90{ width: 90%; }
+.w-82{ width: 82%; }
 .w-80{ width: 80%; }
 .w-50{ width: 50%; }
 .w-45{ width: 45%; }
@@ -144,7 +147,10 @@ label{
 
 .ml-5{ margin-left: 5%; }
 
+.mt-5{ margin-top: 5%; }
+.mt-8{ margin-top: 8%; }
 .mt-10{ margin-top: 10%; }
+.mt-15{ margin-top: 15%; }
 
 .p-5p{ padding: 5px; }
 
