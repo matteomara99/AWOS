@@ -13,7 +13,7 @@
         
         <!-- left menu -->
         <div class="border-white w-20">
-            <div class="w-100">
+            <div class="w-100" style="background-color:green;">
                 <div class="w-100">
                     <div class="text-center"><small>PRESSURE</small></div>
                     <div class="text-green bg-greybox m-30p">1013</div>
@@ -33,7 +33,7 @@
                     </div>
                 </div>
             </div>
-            <div class="d-flex w-100">
+            <div class="d-flex w-100" style="background-color:red;">
                 <!-- Atis Arr -->
                 <div class="w-45 p-5p">
                     <div class="text-yellow">C</div>
@@ -46,8 +46,6 @@
                     <div><small>10:20z</small></div>
                 </div>
             </div>
-            <div>ATIS</div>
-            <div>Dati ATIS</div>
         </div>
 
         <!--right menu -->

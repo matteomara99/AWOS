@@ -8,7 +8,7 @@
         if ($result->num_rows > 0) {
             while($row = $result->fetch_assoc()) {
     ?>
-                <span><?php echo strtoupper($row["metar"]) ?></span>
+                <span class="text-white bold"><?php echo strtoupper($row["metar"]) ?></span><br>
     <?php
             }
         }

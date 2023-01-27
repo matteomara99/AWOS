@@ -12,8 +12,8 @@
 				<img src="https://cdn-web.enav.it//content/2021-04/Group_0.svg" width="300px">
 			</div>
 			<div class="container">
-				<label for="uname"><b>Username</b></label>
-				<input type="text" placeholder="Enter Username" name="uname" required>
+				<label for="username"><b>Username</b></label>
+				<input type="text" placeholder="Enter Username" name="username" required>
 
 				<label for="psw"><b>Password</b></label>
 				<input type="password" placeholder="Enter Password" name="psw" required>
