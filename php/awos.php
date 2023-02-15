@@ -29,7 +29,7 @@
 			<!-- Menu principale -->
 			<?php include "menuTopAwos.php"; ?>
 			
-			<div class="d-flex" style="height: calc(100% + 10px);">
+			<div class="d-flex" style="height: calc(100vh - 90px)">
 				<!-- Menu sinistra -->
 				<?php include "menuLeftAwos.php"; ?>
 				
