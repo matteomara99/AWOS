@@ -51,9 +51,9 @@ body{
 
 .text-white{ color:white; }
 
-.text-green{ color:rgb(120,190,75); }
+.text-green{ color:rgb(0,250,0); }
 
-.text-yellow{ color:rgb(252,251,25); }
+.text-yellow{ color:rgb(250,250,0); }
 
 
 
@@ -127,23 +127,30 @@ label{
 .w-90{ width: 90%; }
 .w-82{ width: 82%; }
 .w-80{ width: 80%; }
+.w-60{ width: 60%; }
+.w-58{ width: 58%; }
 .w-50{ width: 50%; }
 .w-45{ width: 45%; }
 .w-34{ width: 34%; }
 .w-33{ width: 33%; }
 .w-32{ width: 32%; }
+.w-27{ width: 27%; }
+.w-26{ width: 26%; }
 .w-20{ width: 20%; }
 .w-18{ width: 18%; }
 .w-13{ width: 13%; }
 .w-10{ width: 10%; }
+.w-1{ width: 1%; }
 
 .border-1sw{ border: 1px solid white; }
 .border-2sw{ border: 2px solid white; }
+.border-right-0sw{ border-right: 0px solid white; }
 .br-20p{ border-radius: 20px; }
 
 .m-auto{ margin: auto; }
 .m-0p{ margin: 0px; }
 .m-5{ margin: 5%; }
+.m-5p{ margin: 5px; }
 .m-10{ margin: 10%; }
 .m-30p{ margin: 30px; }
 
@@ -155,6 +162,18 @@ label{
 .mt-15{ margin-top: 15%; }
 
 .p-5p{ padding: 5px; }
+.p-10p{ padding: 10px; }
 
+.fs-20p{ font-size: 20px; }
 .fs-25p{ font-size: 25px; }
 .fs-30p{ font-size: 30px; }
+.fs-50p{ font-size: 50px; }
+.fs-90p{ font-size: 90px; }
+
+.fw-bold{ font-weight: bold; }
+
+
+.div-center {
+	margin: auto;
+	width: 50%;
+}

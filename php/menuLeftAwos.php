@@ -1,4 +1,4 @@
-<div class="border-2sw w-18">
+<div class="border-2sw border-right-0sw w-18">
     <!-- Date -->
     <div class="border-1sw w-90 mx-auto mt-3">
         <div class="text-center fw-bold text-white fs-30p" style="height: 50px">
@@ -7,7 +7,7 @@
     </div>
     <!-- Hour -->
     <div class="border-1sw w-90 mx-auto mt-1">
-        <div class="text-center fw-bold text-white fs-30p" style="height: 50px" id="clock" >00:00:00 UTC</div>
+        <div class="text-center fw-bold text-white fs-30p" style="height: 50px" id="clock">00:00:00 UTC</div>
     </div>
     <!-- Metar -->
     <div class="w-90 mx-auto mt-15">
