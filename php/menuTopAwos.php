@@ -14,12 +14,12 @@
 
 <div class="d-flex fw-bold bg-white" style="height:20px; width:100%; font-size:15px; padding-left:5px;">AWOS MET Client</div>
 <div class="d-flex bg-white" style="height:20px; width:100%; font-size:10px;">
-    <div class="text-center" style="height:15px; width:35px;">Login</div>
-    <div class="text-center" style="height:15px; width:35px;">Alarms</div>
-    <div class="text-center" style="height:15px; width:35px;">Sound</div>
-    <div class="text-center" style="height:15px; width:35px;">Help</div>
-    <div class="text-center" style="height:15px; width:35px;">Lifts</div>
-    <div class="text-center" style="height:15px; width:35px;">Exit</div>
+    <div class="text-center menu" style="height:15px; width:35px;">Login</div>
+    <div class="text-center menu" style="height:15px; width:35px;">Alarms</div>
+    <div class="text-center menu" style="height:15px; width:35px;">Sound</div>
+    <div class="text-center menu" style="height:15px; width:35px;">Help</div>
+    <div class="text-center menu" style="height:15px; width:35px;">Lifts</div>
+    <div class="text-center menu" style="height:15px; width:35px;">Exit</div>
 </div>
 
 <div style="height:50px; width:100%;" class="d-flex bg-white">
