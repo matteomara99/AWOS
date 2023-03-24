@@ -8,6 +8,14 @@ body{
 
 .d-flex{ display:flex; }
 
+.cardAirport{
+	height: 250px;
+	width: 250px;
+	padding: 15px;
+	margin: 50px;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
 .button{
 	color:white;
 	font-weight:bold;
@@ -143,6 +151,8 @@ label{
 .w-15{ width: 15%; }
 .w-13{ width: 13%; }
 .w-10{ width: 10%; }
+.w-6{ width: 6%; }
+.w-5{ width: 5%; }
 .w-2{ width: 2%; }
 .w-1{ width: 1%; }
 
@@ -168,6 +178,7 @@ label{
 .p-5p{ padding: 5px; }
 .p-10p{ padding: 10px; }
 
+.fs-15p{ font-size: 15px; }
 .fs-20p{ font-size: 20px; }
 .fs-25p{ font-size: 25px; }
 .fs-30p{ font-size: 30px; }

@@ -26,17 +26,14 @@
     <div class="w-20"><img src="../images/load.gif" style="height:50px;"><img src="..\images\<?php echo $logo ?>" style="height:35px; margin:5px;"/></div>
     <div class="fw-bold text-center" style="width:22%; font-size:20px; padding:10px;">AWOS MET - <?php echo $_POST["airport"] ?></div>
     <div class="d-flex text-center" style="width:30%;">
-            <div style="width:17%;">
-            </div>
-            <div style="width:25%;">
-                <div style="border:1px solid black; height:80%; margin:5%;">Tec. Alarms</div>
-            </div>
-            <div style="width:16%;">
-            </div>
-            <div style="width:25%;">
-                <div style="border:1px solid black; height:80%; margin:5%;">Met. Alarms</div>
-            </div>
-            <div style="width:17%;">
-            </div>
+        <div style="width:17%;"></div>
+        <div style="width:25%;">
+            <div style="border:1px solid black; height:80%; margin:5%;">Tec. Alarms</div>
         </div>
+        <div style="width:16%;"></div>
+        <div style="width:25%;">
+            <div style="border:1px solid black; height:80%; margin:5%;">Met. Alarms</div>
+        </div>
+        <div style="width:17%;"></div>
+    </div>
 </div>

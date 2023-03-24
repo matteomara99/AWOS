@@ -1,6 +1,7 @@
 <?php
 	include "connection_open.php";
 	include "sql\query.php";
+	include "..\class\windGenerator.cls.php";
 ?>	
 	<!--background image-->
 	<style>
@@ -36,7 +37,6 @@
 				<!-- Menu schede -->
 				<div class="border-2sw w-82">
 					<div class="tabs" style="margin-top:0.5%; margin-left:0.5%">
-
 						<?php include "tabs\metarData.php"; ?>
 						<?php include "tabs\localReportData.php"; ?>
 						<?php include "tabs\sensorsData.php"; ?>
