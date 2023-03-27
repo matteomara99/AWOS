@@ -1,9 +1,5 @@
 body{
-	background-image: url('AWOS.png');
-	background-repeat: no-repeat, repeat;
-	background-color: #cccccc;
-	height:700px;
-	width:1180px;
+	background-color: rgb(120, 160, 220);
 }
 
 .d-flex{ display:flex; }
@@ -156,6 +152,14 @@ label{
 .w-2{ width: 2%; }
 .w-1{ width: 1%; }
 
+.h-100{ height: 100%; }
+.h-20{ height: 20%; }
+.h-15{ height: 15%; }
+.h-13{ height: 13%; }
+.h-12{ height: 12%; }
+.h-10{ height: 10%; }
+.h-5{ height: 5%; }
+
 .border-1sw{ border: 1px solid white; }
 .border-2sw{ border: 2px solid white; }
 .border-right-0sw{ border-right: 0px solid white; }
@@ -182,6 +186,7 @@ label{
 .fs-20p{ font-size: 20px; }
 .fs-25p{ font-size: 25px; }
 .fs-30p{ font-size: 30px; }
+.fs-35p{ font-size: 35px; }
 .fs-50p{ font-size: 50px; }
 .fs-90p{ font-size: 90px; }
 

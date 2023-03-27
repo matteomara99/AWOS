@@ -5,27 +5,26 @@
 
 	<form action="awos.php" method="POST">
 		<div class="d-flex">
-		<?php
-			$result = $conn->query($airports);
-			if ($result->num_rows > 0) {
-				$i = 0;
-				while($row = $result->fetch_assoc()) {
-		?>
-					<div class="cardAirport">
-						<img src="..\images\airport\<?php echo $row["icaoCode"] ?>.jpg" width="100%" height="80%">
-						<br>
-						<div>
-							<span class="text-center fw-bold"> <?php echo strtoupper($row["icaoCode"]) ?> </span>
-							<br>
-							<span class="text-center fw-bold"> <?php echo $row["city"] ?> </span>
+            <?php
+                $result = $conn->query($airports);
+                if ($result->num_rows > 0) {
+					$i = 0;
+                    while($row = $result->fetch_assoc()) {
+            ?>
+						<button name="airport" value="<?php echo strtoupper($row["icaoCode"]) ?>" width="100px" height="100px">
+							<span class="text-center"> <?php echo strtoupper($row["icaoCode"]) ?> </span>
+							<!-- <img src="..\images\<?php echo $row["icaoCode"] ?>.jpg"> -->
+						</button>
+
+						<div name="airport" value="<?php echo strtoupper($row["icaoCode"]) ?>">
+							<span class="text-center"> <?php echo strtoupper($row["icaoCode"]) . " - " . $row["city"] . "/" . $row["name"] ?> </span>
 						</div>
-					</div>
-		<?php
-				}
-			}
-		?>
+			<?php
+					}
+                }
+            ?>
 		</div>
-	</form>
+    </form>
 <?php
 	include "connection_close.php";
 ?>

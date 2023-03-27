@@ -8,9 +8,9 @@
     $ta = 60;
     $tl = 0;
 
-    $wind = 60;
+    $direction = 45;
     $speed = 10;
-    $rwy = 67;
+    $rwy = 60;
 
     if($qnh >= 1013){
         $tl = $ta + 10;
@@ -25,7 +25,22 @@
         $tl = $ta + 25;
         $color = "red";
     }
+
+    /*
+    $windAngle = $direction - $rwy;
+
+    echo "<br>direction: ". $direction;
+    echo "<br>rwy: ". $rwy;
+    echo "<br>angle: ". $windAngle;
+
+    $tail = $speed * sin(deg2rad($windAngle));
+    $cross = -$speed * cos(deg2rad($windAngle));
+
+    echo "<br>tail: " . $tail;
+    echo "<br>cross: " . $cross;*/
 ?>
+
+<!-- test end -->
 
 <input type="radio" name="tabs" id="tabMetarData" checked="checked">
 <label for="tabMetarData">Metar Data</label>
@@ -33,8 +48,8 @@
 <div class="tab">
     <div class="d-flex">
         <div class="w-100">
-            <div class="w-100" style="border-top:1px solid white; background-color:green;">
-                <div class="d-flex text-center p-5p">
+            <div class="w-100">
+                <div class="d-flex text-center">
                     <div class="w-20 border-1sw p-5p">
                         <div class="m-auto w-60 text-center">
                             <div class="text-white fw-bold"><small>QNH</small></div>
@@ -90,9 +105,11 @@
                     <div class="w-20 border-1sw p-5p">
                         <!-- Atis arr -->
                         <div class="w-100 p-5p text-center text-white fw-bold">
-                            <div class=""><small>ATIS DEP/ARR</small></div>
-                            <div class="fs-90p">C</div>
-                            <div class=""><small>10:20z</small></div>
+                            <?php if($atis == 1){ ?>
+                                <div class=""><small>ATIS DEP/ARR</small></div>
+                                <div class="fs-90p">C</div>
+                                <div class=""><small>10:20z</small></div>
+                            <?php } ?>
                         </div>
                         <!-- Atis Dep -->
                         <!--
@@ -106,7 +123,7 @@
                 </div>
             </div>
             <!-- runway display -->
-            <div class="w-100" style="background-color:black;">
+            <div class="bg-black w-100">
                 <div class="d-flex text-center p-5p">
                 <?php
                     $result = $conn->query($runway);
@@ -114,13 +131,13 @@
                         while($row = $result->fetch_assoc()) {
                 ?>
                             <div class="w-10">
-                                <button class="buttonRwy" name="primary<?php echo $row["priRwyId"] ?>"><?php echo "RWY " . $row["priRwyId"] ?></button>
+                                <button type="button" onclick="rwyOcc()" class="buttonRwy" name="primary<?php echo $row["priRwyId"] ?>"><?php echo "RWY " . $row["priRwyId"] ?></button>
                             </div>
                             <div class="w-2">&nbsp</div>
-                            <div class="w-76" style="background-color:grey">RWY</div>
+                            <div id="runway" class="w-76" style="background-color:grey">RWY</div>
                             <div class="w-2">&nbsp</div>
                             <div class="w-10">
-                                <button class="buttonRwy" name="secondary<?php echo $row["secRwyId"] ?>"><?php echo "RWY " . $row["secRwyId"] ?></button>
+                                <button type="button" onclick="rwyOcc()" class="buttonRwy" name="secondary<?php echo $row["secRwyId"] ?>"><?php echo "RWY " . $row["secRwyId"] ?></button>
                             </div>
                 <?php
                         }
@@ -133,69 +150,152 @@
                 <!-- wind direction and velocity -->
                 <div class="d-flex">
                     <!-- priRwy datas -->
-                    <div class="m-auto w-50 border-1sw">
-                        <div class="w-100">&nbsp</div>
-                        <div class="d-flex">
-                            <div class="w-20">&nbsp</div>   
-                            <div class="w-20 bg-greybox text-green fw-bold fs-15p text-center">A</div> 
-                            <div class="w-20">&nbsp</div>   
-                            <div class="w-20 bg-greybox text-green fw-bold fs-15p text-center">B</div> 
-                            <div class="w-20">&nbsp</div>   
-                        </div>
-                        <div class="w-100">&nbsp</div>
-                        <div class="d-flex">
-                            <div class="d-flex w-50">
+                    <div class="m-auto w-50 border-1sw" style="height: 230px;">
+                        <?php if($windPriRwy == 1){ ?>
+                            <div class="w-100 h-5">&nbsp</div>
+                            <div class="d-flex">
                                 <div class="w-20">&nbsp</div>
-                                <div class="w-20 bg-greybox text-green fw-bold fs-15p text-center">C1</div>
+                                <div class="w-20 text-white fw-bold text-center"><small>DIR(°)</small></div> 
                                 <div class="w-20">&nbsp</div>
-                                <div class="w-20 bg-greybox text-green fw-bold fs-15p text-center">C2</div>
+                                <div class="w-20 text-white fw-bold text-center"><small>SPEED (kt)</small></div> 
+                                <div class="w-20">&nbsp</div>   
+                            </div>
+                            <div class="d-flex h-20">
+                                <div class="w-20">&nbsp</div>
+                                <div class="w-20 bg-greybox text-green fw-bold fs-30p text-center">360</div> 
+                                <div class="w-20">&nbsp</div>
+                                <div class="w-20 bg-greybox text-green fw-bold fs-30p text-center">05</div> 
+                                <div class="w-20">&nbsp</div>   
+                            </div>
+                            <div class="w-100 h-5">&nbsp</div>
+                            <div class="d-flex">
+                                <div class="d-flex w-50">
+                                    <div class="w-20">&nbsp</div>
+                                    <div class="w-60 text-white fw-bold text-center"><small>Extremes (°)</small></div>
+                                    <div class="w-20">&nbsp</div>
+                                </div>
+                                <div class="d-flex w-50">
+                                    <div class="w-20">&nbsp</div>
+                                    <div class="w-60 text-white fw-bold text-center"><small>Min (Kt)</small></div>
+                                    <div class="w-20">&nbsp</div>
+                                    <div class="w-60 text-white fw-bold text-center"><small>Max (Kt)</small></div>
+                                    <div class="w-20">&nbsp</div>
+                                </div>
+                            </div>
+                            <div class="d-flex h-15">
+                                <div class="d-flex w-50">
+                                    <div class="w-20">&nbsp</div>
+                                    <div class="w-20 bg-greybox text-green fw-bold fs-20p text-center">350</div>
+                                    <div class="w-20">&nbsp</div>
+                                    <div class="w-20 bg-greybox text-green fw-bold fs-20p text-center">080</div>
+                                    <div class="w-20">&nbsp</div>
+                                </div>
+                                <div class="d-flex w-50">
+                                    <div class="w-20">&nbsp</div>
+                                    <div class="w-20 bg-greybox text-green fw-bold fs-20p text-center">17</div>
+                                    <div class="w-20">&nbsp</div>
+                                    <div class="w-20 bg-greybox text-green fw-bold fs-20p text-center">14</div>
+                                    <div class="w-20">&nbsp</div>
+                                </div>
+                            </div>
+                            <div class="w-100 h-5">&nbsp</div>
+                            <div class="d-flex w-100">
+                                <div class="w-20">&nbsp</div>
+                                <div class="w-20 text-white fw-bold text-center"><small>Cross (Kt)</small></div>
+                                <div class="w-20">&nbsp</div>
+                                <div class="w-20 text-white fw-bold text-center"><small>Tail (Kt)</small></div>
                                 <div class="w-20">&nbsp</div>
                             </div>
-                            <div class="d-flex w-50">
+                            <div class="d-flex w-100 h-15">
                                 <div class="w-20">&nbsp</div>
-                                <div class="w-20 bg-greybox text-green fw-bold fs-15p text-center">C3</div>
+                                <div class="w-20 bg-greybox text-green fw-bold fs-20p text-center">CROSS</div>
                                 <div class="w-20">&nbsp</div>
-                                <div class="w-20 bg-greybox text-green fw-bold fs-15p text-center">C4</div>
+                                <div class="w-20 bg-greybox text-green fw-bold fs-20p text-center">TAIL</div>
                                 <div class="w-20">&nbsp</div>
                             </div>
-                        </div>
-                        <div class="w-100">&nbsp</div>
-                        <div class="d-flex w-100">
-                            <div class="w-20">&nbsp</div>
-                            <div class="w-20 bg-greybox text-green fw-bold fs-15p text-center">D1</div>
-                            <div class="w-20">&nbsp</div>
-                            <div class="w-20 bg-greybox text-green fw-bold fs-15p text-center">D2</div>
-                            <div class="w-20">&nbsp</div>
-                        </div>
-                        <div class="w-100">&nbsp</div>
+                        <?php } ?>
                     </div>
+                    <!-- priRwy datas end -->
                     <!-- secRwy datas -->
-                    <div class="m-auto w-50 border-1sw">
-                        <div class="d-flex">
-                            <div>A</div>
-                            <div>B</div>
-                        </div>
-                        <div class="d-flex">
-                            <div>C1</div>
-                            <div>C2</div>
-                            <div>D1</div>
-                            <div>D2</div>
-                        </div>
-                        <div class="d-flex">
-                            <div>E</div>
-                            <div>F</div>
-                        </div>
+                    <div class="m-auto w-50 border-1sw" style="height: 230px;">
+                        <?php if($windSecRwy == 1){ ?>
+                            <div class="w-100 h-5">&nbsp</div>
+                            <div class="d-flex">
+                                <div class="w-20">&nbsp</div>
+                                <div class="w-20 text-white fw-bold text-center"><small>DIR(°)</small></div> 
+                                <div class="w-20">&nbsp</div>
+                                <div class="w-20 text-white fw-bold text-center"><small>SPEED (kt)</small></div> 
+                                <div class="w-20">&nbsp</div>   
+                            </div>
+                            <div class="d-flex h-20">
+                                <div class="w-20">&nbsp</div>
+                                <div class="w-20 bg-greybox text-green fw-bold fs-35p text-center">360</div> 
+                                <div class="w-20">&nbsp</div>
+                                <div class="w-20 bg-greybox text-green fw-bold fs-35p text-center">05</div> 
+                                <div class="w-20">&nbsp</div>   
+                            </div>
+                            <div class="w-100 h-5">&nbsp</div>
+                            <div class="d-flex">
+                                <div class="d-flex w-50">
+                                    <div class="w-20">&nbsp</div>
+                                    <div class="w-60 text-white fw-bold text-center"><small>Extremes (°)</small></div>
+                                    <div class="w-20">&nbsp</div>
+                                </div>
+                                <div class="d-flex w-50">
+                                    <div class="w-20">&nbsp</div>
+                                    <div class="w-60 text-white fw-bold text-center"><small>Min (Kt)</small></div>
+                                    <div class="w-20">&nbsp</div>
+                                    <div class="w-60 text-white fw-bold text-center"><small>Max (Kt)</small></div>
+                                    <div class="w-20">&nbsp</div>
+                                </div>
+                            </div>
+                            <div class="d-flex h-15">
+                                <div class="d-flex w-50">
+                                    <div class="w-20">&nbsp</div>
+                                    <div class="w-20 bg-greybox text-green fw-bold fs-25p text-center">350</div>
+                                    <div class="w-20">&nbsp</div>
+                                    <div class="w-20 bg-greybox text-green fw-bold fs-25p text-center">080</div>
+                                    <div class="w-20">&nbsp</div>
+                                </div>
+                                <div class="d-flex w-50">
+                                    <div class="w-20">&nbsp</div>
+                                    <div class="w-20 bg-greybox text-green fw-bold fs-25p text-center">17</div>
+                                    <div class="w-20">&nbsp</div>
+                                    <div class="w-20 bg-greybox text-green fw-bold fs-25p text-center">14</div>
+                                    <div class="w-20">&nbsp</div>
+                                </div>
+                            </div>
+                            <div class="w-100 h-5">&nbsp</div>
+                            <div class="d-flex w-100">
+                                <div class="w-20">&nbsp</div>
+                                <div class="w-20 text-white fw-bold text-center"><small>Cross (Kt)</small></div>
+                                <div class="w-20">&nbsp</div>
+                                <div class="w-20 text-white fw-bold text-center"><small>Tail (Kt)</small></div>
+                                <div class="w-20">&nbsp</div>
+                            </div>
+                            <div class="d-flex w-100 h-15">
+                                <div class="w-20">&nbsp</div>
+                                <div class="w-20 bg-greybox text-green fw-bold fs-25p text-center">CROSS</div>
+                                <div class="w-20">&nbsp</div>
+                                <div class="w-20 bg-greybox text-green fw-bold fs-25p text-center">TAIL</div>
+                                <div class="w-20">&nbsp</div>
+                            </div>
+                        <?php } ?>
                     </div>
+                    <!-- secRwu datas end -->
                 </div>
                 <!-- rvr -->
-                <div class="m-auto w-100 border-1sw d-flex p-10p">
-                    <div class="w-10">&nbsp</div>   
-                    <div class="w-20 bg-greybox text-green fw-bold fs-30p text-center">1500</div>
-                    <div class="w-10">&nbsp</div>
-                    <div class="w-20 bg-greybox text-green fw-bold fs-30p text-center">1500</div>
-                    <div class="w-10">&nbsp</div>
-                    <div class="w-20 bg-greybox text-green fw-bold fs-30p text-center">1500</div>
-                    <div class="w-10">&nbsp</div>
+                <div class="m-auto w-100 border-1sw p-10p">
+                    <div class="w-100 text-center fw-bold text-white"><small>RVR(m)</small></div>
+                    <div class="m-auto w-100 border-1sw d-flex p-10p">
+                        <div class="w-10">&nbsp</div>   
+                        <div class="w-20 bg-greybox text-green fw-bold fs-30p text-center"> <?php if($rvrRwyPri == 1){ echo "1500"; } ?> </div>
+                        <div class="w-10">&nbsp</div>
+                        <div class="w-20 bg-greybox text-green fw-bold fs-30p text-center"> <?php if($rvrRwyCen == 1){ echo "1500"; } ?> </div>
+                        <div class="w-10">&nbsp</div>
+                        <div class="w-20 bg-greybox text-green fw-bold fs-30p text-center"> <?php if($rvrRwySec == 1){ echo "1500"; } ?> </div>
+                        <div class="w-10">&nbsp</div>
+                    </div>
                 </div>
             </div>
         </div>

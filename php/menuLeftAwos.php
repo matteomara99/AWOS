@@ -2,7 +2,7 @@
     <!-- Date -->
     <div class="border-1sw w-90 mx-auto mt-3">
         <div class="text-center fw-bold text-white fs-30p" style="height: 50px">
-            <?php echo date("j-M-Y") ?>
+            <?php echo gmdate("j-M-Y") ?>
         </div>
     </div>
     <!-- Hour -->
