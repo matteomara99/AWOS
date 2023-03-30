@@ -1,6 +1,5 @@
-<!--test-->
-
 <?php
+    //inizio test
     $qnh = 1015;
     $temp = 23;
     $dp = 20;
@@ -8,52 +7,126 @@
     $ta = 60;
     $tl = 0;
 
-    $direction = 45;
-    $speed = 10;
-    $rwy = 60;
+    $visibility = 400;
+    $dirPriRwy = 230;
+    $spdPriRwy = 8;
+    $gstPriRwy = 16;
+    $dirSecRwy = 280;
+    $spdSecRwy = 5;
+    $gstSecRwy = 25;
+    $rwy = 060;
 
+    $rvrRwyPriVal = 1500;
+    $rvrRwyCenVal = 1000;
+    $rvrRwySecVal = 400;
+    //fine test
+
+    //QNH
     if($qnh >= 1013){
         $tl = $ta + 10;
-        $color = "rgb(0,250,0);";
+        $colorQnh = "rgb(0,250,0);";
     }else if($qnh >= 995 && $qnh < 1013){
         $tl = $ta + 15;
-        $color = "rgb(250,250,0)";
+        $colorQnh = "rgb(250,250,0)";
     }else if($qnh >= 977 && $qnh < 995){
         $tl = $ta + 20;
-        $color = "rgb(250,250,0)";
+        $colorQnh = "rgb(250,250,0)";
     }else if($qnh < 977){
         $tl = $ta + 25;
-        $color = "red";
+        $color = "rgb(250,0,0)";
     }
 
-    /*
-    $windAngle = $direction - $rwy;
+    //Wind extremes
+    $leftPriRwy = rand($dirPriRwy - 90, $dirPriRwy);
+    $rightPriRwy = rand($dirPriRwy + 90, $dirPriRwy);
+    $leftSecRwy = rand($dirSecRwy - 90, $dirSecRwy);
+    $rightSecRwy = rand($dirSecRwy + 90, $dirSecRwy);
 
-    echo "<br>direction: ". $direction;
-    echo "<br>rwy: ". $rwy;
-    echo "<br>angle: ". $windAngle;
+    if($leftPriRwy < 0){
+        $leftPriRwy = $leftPriRwy + 360;
+    }else if($leftPriRwy > 360){
+        $leftPriRwy = $leftPriRwy - 360;
+    }
 
-    $tail = $speed * sin(deg2rad($windAngle));
-    $cross = -$speed * cos(deg2rad($windAngle));
+    if($rightPriRwy < 0){
+        $rightPriRwy = $rightPriRwy + 360;
+    }else if($rightPriRwy > 360){
+        $rightPriRwy = $rightPriRwy - 360;
+    }
 
-    echo "<br>tail: " . $tail;
-    echo "<br>cross: " . $cross;*/
+    if($leftSecRwy < 0){
+        $leftSecRwy = $leftSecRwy + 360;
+    }else if($leftSecRwy > 360){
+        $leftSecRwy = $leftSecRwy - 360;
+    }
+
+    if($rightSecRwy < 0){
+        $rightSecRwy = $rightSecRwy + 360;
+    }else if($rightSecRwy > 360){
+        $rightSecRwy = $rightSecRwy - 360;
+    }
+
+    //gusts
+    $diffPriRwy = $gstPriRwy - $spdPriRwy;
+    $diffSecRwy = $gstSecRwy - $spdSecRwy;
+
+    $minGstPriRwy = round(rand(($gstPriRwy * (-20 / 100)) + $gstPriRwy, $gstPriRwy));
+    $maxGstPriRwy = round(rand(($gstPriRwy * (20 / 100)) + $gstPriRwy, $gstPriRwy));
+
+    //RVR
+    if($visibility < 500){
+        $rvrRwyPriVal = round(rand(($visibility * (50 / 100)) + $visibility, $visibility));
+        $rvrRwyCenVal = round(rand(($visibility * (50 / 100)) + $visibility, $visibility));
+        $rvrRwySecVal = round(rand(($visibility * (50 / 100)) + $visibility, $visibility));
+    }
+
+    if($rvrRwyPriVal > 1000){
+        $colorRvrPriRwy = "rgb(0,250,0);";
+    }else if($rvrRwyPriVal <= 1000 && $rvrRwyPriVal > 500){
+        $colorRvrPriRwy = "rgb(250,250,0)";
+    }else if($rvrRwyPriVal <= 500){
+        $colorRvrPriRwy = "rgb(250,0,0)";
+    }
+
+    if($rvrRwyCenVal > 1000){
+        $colorRvrCenRwy = "rgb(0,250,0);";
+    }else if($rvrRwyCenVal <= 1000 && $rvrRwyCenVal > 500){
+        $colorRvrCenRwy = "rgb(250,250,0)";
+    }else if($rvrRwyCenVal <= 500){
+        $colorRvrCenRwy = "rgb(250,0,0)";
+    }
+
+    if($rvrRwySecVal > 1000){
+        $colorRvrSecRwy = "rgb(0,250,0);";
+    }else if($rvrRwySecVal <= 1000 && $rvrRwySecVal > 500){
+        $colorRvrSecRwy = "rgb(250,250,0)";
+    }else if($rvrRwySecVal <= 500){
+        $colorRvrSecRwy = "rgb(250,0,0)";
+    }
+
+    //cross & tail primary rwy
+    $windAngle = $dirPriRwy - $rwy;
+    $tailPriRwy = round($spdPriRwy * sin(deg2rad($windAngle)));
+    $crossPriRwy = round(-$spdPriRwy * cos(deg2rad($windAngle)));
+    
+    //cross & tail secondary rwy
+    $windAngle = $dirSecRwy - $rwy;
+    $tailSecRwy = round($spdSecRwy * sin(deg2rad($windAngle)));
+    $crossSecRwy = round(-$spdSecRwy * cos(deg2rad($windAngle)));
 ?>
-
-<!-- test end -->
 
 <input type="radio" name="tabs" id="tabMetarData" checked="checked">
 <label for="tabMetarData">Metar Data</label>
 
-<div class="tab">
+<div class="tab h-100">
     <div class="d-flex">
         <div class="w-100">
-            <div class="w-100">
+            <div class="w-100 h-35">
                 <div class="d-flex text-center">
                     <div class="w-20 border-1sw p-5p">
                         <div class="m-auto w-60 text-center">
                             <div class="text-white fw-bold"><small>QNH</small></div>
-                            <div class="bg-greybox m-20p fs-30p fw-bold" style="color:<?php echo $color ?>"><?php echo $qnh ?></div>
+                            <div class="bg-greybox m-20p fs-30p fw-bold" style="color:<?php echo $colorQnh ?>"><?php echo $qnh ?></div>
                         </div>
                         <div class="d-flex">
                             <div class="w-40 m-auto">
@@ -123,7 +196,7 @@
                 </div>
             </div>
             <!-- runway display -->
-            <div class="bg-black w-100">
+            <div class="bg-black w-100 h-10">
                 <div class="d-flex text-center p-5p">
                 <?php
                     $result = $conn->query($runway);
@@ -146,7 +219,7 @@
                 </div>
             </div>
             <!-- runway thr and vis datas -->
-            <div>
+            <div class="h-55">
                 <!-- wind direction and velocity -->
                 <div class="d-flex">
                     <!-- priRwy datas -->
@@ -162,9 +235,9 @@
                             </div>
                             <div class="d-flex h-20">
                                 <div class="w-20">&nbsp</div>
-                                <div class="w-20 bg-greybox text-green fw-bold fs-30p text-center">360</div> 
+                                <div class="w-20 bg-greybox text-green fw-bold fs-30p text-center"> <?php echo $dirPriRwy ?> </div> 
                                 <div class="w-20">&nbsp</div>
-                                <div class="w-20 bg-greybox text-green fw-bold fs-30p text-center">05</div> 
+                                <div class="w-20 bg-greybox text-green fw-bold fs-30p text-center"> <?php echo $spdPriRwy ?> </div> 
                                 <div class="w-20">&nbsp</div>   
                             </div>
                             <div class="w-100 h-5">&nbsp</div>
@@ -185,16 +258,16 @@
                             <div class="d-flex h-15">
                                 <div class="d-flex w-50">
                                     <div class="w-20">&nbsp</div>
-                                    <div class="w-20 bg-greybox text-green fw-bold fs-20p text-center">350</div>
+                                    <div class="w-20 bg-greybox text-green fw-bold fs-20p text-center"> <?php echo $leftPriRwy ?> </div>
                                     <div class="w-20">&nbsp</div>
-                                    <div class="w-20 bg-greybox text-green fw-bold fs-20p text-center">080</div>
+                                    <div class="w-20 bg-greybox text-green fw-bold fs-20p text-center"> <?php echo $rightPriRwy ?> </div>
                                     <div class="w-20">&nbsp</div>
                                 </div>
                                 <div class="d-flex w-50">
                                     <div class="w-20">&nbsp</div>
-                                    <div class="w-20 bg-greybox text-green fw-bold fs-20p text-center">17</div>
+                                    <div class="w-20 bg-greybox text-green fw-bold fs-20p text-center"> <?php echo $minGstPriRwy ?></div>
                                     <div class="w-20">&nbsp</div>
-                                    <div class="w-20 bg-greybox text-green fw-bold fs-20p text-center">14</div>
+                                    <div class="w-20 bg-greybox text-green fw-bold fs-20p text-center"> <?php echo $maxGstPriRwy ?></div>
                                     <div class="w-20">&nbsp</div>
                                 </div>
                             </div>
@@ -208,9 +281,9 @@
                             </div>
                             <div class="d-flex w-100 h-15">
                                 <div class="w-20">&nbsp</div>
-                                <div class="w-20 bg-greybox text-green fw-bold fs-20p text-center">CROSS</div>
+                                <div class="w-20 bg-greybox text-green fw-bold fs-20p text-center"> <?php echo $crossPriRwy ?> </div>
                                 <div class="w-20">&nbsp</div>
-                                <div class="w-20 bg-greybox text-green fw-bold fs-20p text-center">TAIL</div>
+                                <div class="w-20 bg-greybox text-green fw-bold fs-20p text-center"> <?php echo $tailPriRwy ?> </div>
                                 <div class="w-20">&nbsp</div>
                             </div>
                         <?php } ?>
@@ -252,9 +325,9 @@
                             <div class="d-flex h-15">
                                 <div class="d-flex w-50">
                                     <div class="w-20">&nbsp</div>
-                                    <div class="w-20 bg-greybox text-green fw-bold fs-25p text-center">350</div>
+                                    <div class="w-20 bg-greybox text-green fw-bold fs-25p text-center"> <?php echo $leftSecRwy ?> </div>
                                     <div class="w-20">&nbsp</div>
-                                    <div class="w-20 bg-greybox text-green fw-bold fs-25p text-center">080</div>
+                                    <div class="w-20 bg-greybox text-green fw-bold fs-25p text-center"> <?php echo $rightSecRwy ?> </div>
                                     <div class="w-20">&nbsp</div>
                                 </div>
                                 <div class="d-flex w-50">
@@ -287,13 +360,13 @@
                 <!-- rvr -->
                 <div class="m-auto w-100 border-1sw p-10p">
                     <div class="w-100 text-center fw-bold text-white"><small>RVR(m)</small></div>
-                    <div class="m-auto w-100 border-1sw d-flex p-10p">
+                    <div class="m-auto w-100 border-1sw d-flex p-5p">
                         <div class="w-10">&nbsp</div>   
-                        <div class="w-20 bg-greybox text-green fw-bold fs-30p text-center"> <?php if($rvrRwyPri == 1){ echo "1500"; } ?> </div>
+                        <div class="w-20 bg-greybox text-green fw-bold fs-30p text-center" style="color:<?php echo $colorRvrPriRwy ?>"> <?php if($rvrRwyPri == 1){ echo $rvrRwyPriVal; } ?> </div>
                         <div class="w-10">&nbsp</div>
-                        <div class="w-20 bg-greybox text-green fw-bold fs-30p text-center"> <?php if($rvrRwyCen == 1){ echo "1500"; } ?> </div>
+                        <div class="w-20 bg-greybox text-green fw-bold fs-30p text-center" style="color:<?php echo $colorRvrCenRwy ?>"> <?php if($rvrRwyCen == 1){ echo $rvrRwyCenVal; } ?> </div>
                         <div class="w-10">&nbsp</div>
-                        <div class="w-20 bg-greybox text-green fw-bold fs-30p text-center"> <?php if($rvrRwySec == 1){ echo "1500"; } ?> </div>
+                        <div class="w-20 bg-greybox text-green fw-bold fs-30p text-center" style="color:<?php echo $colorRvrSecRwy ?>"> <?php if($rvrRwySec == 1){ echo $rvrRwySecVal; } ?> </div>
                         <div class="w-10">&nbsp</div>
                     </div>
                 </div>
