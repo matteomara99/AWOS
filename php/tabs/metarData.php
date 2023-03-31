@@ -7,7 +7,7 @@
     $ta = 60;
     $tl = 0;
 
-    $visibility = 400;
+    $visibility = 300;
     $dirPriRwy = 230;
     $spdPriRwy = 8;
     $gstPriRwy = 16;
@@ -15,10 +15,6 @@
     $spdSecRwy = 5;
     $gstSecRwy = 25;
     $rwy = 060;
-
-    $rvrRwyPriVal = 1500;
-    $rvrRwyCenVal = 1000;
-    $rvrRwySecVal = 400;
     //fine test
 
     //QNH
@@ -33,7 +29,7 @@
         $colorQnh = "rgb(250,250,0)";
     }else if($qnh < 977){
         $tl = $ta + 25;
-        $color = "rgb(250,0,0)";
+        $colorQnh = "rgb(250,0,0)";
     }
 
     //Wind extremes
@@ -74,7 +70,11 @@
     $maxGstPriRwy = round(rand(($gstPriRwy * (20 / 100)) + $gstPriRwy, $gstPriRwy));
 
     //RVR
-    if($visibility < 500){
+    if($visibility >= 400){
+        $rvrRwyPriVal = $visibility;
+        $rvrRwyCenVal = $visibility;
+        $rvrRwySecVal = $visibility;
+    }else{
         $rvrRwyPriVal = round(rand(($visibility * (50 / 100)) + $visibility, $visibility));
         $rvrRwyCenVal = round(rand(($visibility * (50 / 100)) + $visibility, $visibility));
         $rvrRwySecVal = round(rand(($visibility * (50 / 100)) + $visibility, $visibility));
@@ -82,25 +82,25 @@
 
     if($rvrRwyPriVal > 1000){
         $colorRvrPriRwy = "rgb(0,250,0);";
-    }else if($rvrRwyPriVal <= 1000 && $rvrRwyPriVal > 500){
+    }else if($rvrRwyPriVal <= 1000 && $rvrRwyPriVal > 400){
         $colorRvrPriRwy = "rgb(250,250,0)";
-    }else if($rvrRwyPriVal <= 500){
+    }else if($rvrRwyPriVal <= 400){
         $colorRvrPriRwy = "rgb(250,0,0)";
     }
 
     if($rvrRwyCenVal > 1000){
         $colorRvrCenRwy = "rgb(0,250,0);";
-    }else if($rvrRwyCenVal <= 1000 && $rvrRwyCenVal > 500){
+    }else if($rvrRwyCenVal <= 1000 && $rvrRwyCenVal > 400){
         $colorRvrCenRwy = "rgb(250,250,0)";
-    }else if($rvrRwyCenVal <= 500){
+    }else if($rvrRwyCenVal <= 400){
         $colorRvrCenRwy = "rgb(250,0,0)";
     }
 
     if($rvrRwySecVal > 1000){
         $colorRvrSecRwy = "rgb(0,250,0);";
-    }else if($rvrRwySecVal <= 1000 && $rvrRwySecVal > 500){
+    }else if($rvrRwySecVal <= 1000 && $rvrRwySecVal > 400){
         $colorRvrSecRwy = "rgb(250,250,0)";
-    }else if($rvrRwySecVal <= 500){
+    }else if($rvrRwySecVal <= 400){
         $colorRvrSecRwy = "rgb(250,0,0)";
     }
 

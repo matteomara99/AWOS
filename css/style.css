@@ -5,7 +5,7 @@ body{
 .d-flex{ display:flex; }
 
 .cardAirport{
-	width: 250px;
+	width: calc(100%-100px);
 	padding: 15px;
 	margin: 50px;
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -240,4 +240,36 @@ label{
 	position: absolute;
 	bottom: 0;
 	left: 0;
+}
+
+.atisOn {
+	color:white;
+	background-color: green;
+	border-radius: 5px;
+	padding-left: 5px;
+	padding-right: 5px;
+}
+
+.atisOff {
+	color:white;
+	background-color: red;
+	border-radius: 5px;
+	padding-left: 5px;
+	padding-right: 5px;
+}
+
+.typeCiv {
+	color:white;
+	background-color: lightskyblue;
+	border-radius: 5px;
+	padding-left: 5px;
+	padding-right: 5px;
+}
+
+.typeMil {
+	color:white;
+	background-color: burlywood;
+	border-radius: 5px;
+	padding-left: 5px;
+	padding-right: 5px;
 }

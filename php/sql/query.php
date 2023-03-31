@@ -4,7 +4,7 @@ if(isset($_POST["username"])){
     $login = "SELECT * FROM users WHERE username LIKE '" . $_POST['username'] . "'";
 }
 
-$airports = "SELECT icaoCode, iataCode, name, city, elevation, typeAirport, atis FROM airports";
+$airports = "SELECT icaoCode, iataCode, name, city, elevation, typeAirport, atis FROM airports ORDER BY icaoCode";
 
 $listAirports = "SELECT icaoCode, name, city, count(*) as numRwy, typeAirport FROM airports INNER JOIN runways ON airports.IcaoCode = runways.IcaoCode";
 
