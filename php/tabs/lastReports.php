@@ -2,7 +2,7 @@
 <label for="tabLastReports">Last Reports</label>
 
 <div class="tab">
-    <div>
+    <div class="border-1sw" style="height:calc(100vh-90px);">
     <?php
         $result = $conn->query($lastReports);
         if ($result->num_rows > 0) {

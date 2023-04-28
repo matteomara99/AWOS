@@ -69,9 +69,9 @@
 					<?php include "tabs\sensorsData.php"; ?>
 					<?php include "tabs\plot.php"; ?>
 					<?php include "tabs\actualTimeDataRwy.php"; ?>
+					-->
 					<?php include "tabs\lastReports.php"; ?>
 					<?php include "tabs\settings.php"; ?>
-					-->
 				</div>
 			</div>
 		</div>
